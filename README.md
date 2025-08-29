@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-DarkBox is a specialized application of the WicdPico I&C platform designed for Sarah's research into acetate-based plant growth. The system provides instrumentation and control for experiments conducted in complete darkness, where plants metabolize acetate instead of relying on photosynthesis.
+DarkBox is a specialized application of the WicdPico I&C platform designed for research into acetate-based plant growth. The system provides instrumentation and control for experiments conducted in complete darkness, where plants metabolize acetate instead of relying on photosynthesis.
 
 ## Critical Requirements
 
@@ -28,7 +28,7 @@ DarkBox is a specialized application of the WicdPico I&C platform designed for S
 - Environmental monitoring: CO2, temperature, humidity
 - Light presence detection (safety/validation)
 - Fan speed control for air circulation
-- Data logging to SD card
+- RTC timestamped data logging to SD card
 - Web-based virtual control panel (VCP)
 
 **Target**: System validation and proof of concept for Phase 2
@@ -111,7 +111,7 @@ darkbox/
 - **Audience**: Academic researchers requiring specialized controlled environments
 
 ### Research Value
-- **Novel growth method**: Acetate metabolism instead of photosynthesis
+- **Novel growth method**: Darkbox system supports study of acetate metabolism instead of photosynthesis
 - **Cost-effective platform**: Academic-grade instrumentation at maker prices
 - **Reproducible design**: Open source hardware enabling research replication
 - **Modular architecture**: Adaptable to other controlled environment applications
@@ -130,3 +130,5 @@ This project depends on the WicdPico platform:
 - **Documentation**: See WicdPico README for core platform capabilities
 
 Built with CircuitPython and the Adafruit ecosystem for academic research applications.
+
+AI Assistance Note: This project, including aspects of its code (e.g., structure, debugging assistance, error handling enhancements) and the drafting of this README.md, was significantly assisted by large language models, specifically Gemini by Google and Claude by Anthropic. This collaboration highlights the evolving landscape of modern open-source development, demonstrating how AI tools can empower makers to bring complex projects to fruition and achieve robust, production-ready implementations.
