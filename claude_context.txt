@@ -1,0 +1,214 @@
+# Claude Context - DarkBox Project
+
+## Context Document Structure
+
+**Section 1: What the Meatsack Thinks He Wants**
+- Project goals, requirements, and human-defined objectives
+- Research context, safety requirements, and success criteria
+- May contain biases, unrealistic expectations, or incomplete understanding
+
+**Section 2: What We've Done So Far** 
+- Actual progress, working code, tested approaches
+- Git history, current system state, proven functionality
+- Reality-based assessment of what actually works
+
+**Section 3: Methods That Have Improved Meatsack/AI Collaboration**
+- Lessons learned about AI bias and how to counter it
+- Successful collaboration patterns and failure modes to avoid
+- Process improvements and decision-making frameworks
+
+**Section 4: Prompts to Modify AI Behavior**
+- Specific commands to counter AI people-pleasing bias
+- Reality-checking requests and constraint-enforcement techniques
+- Meta-instructions for better AI guidance
+
+---
+
+# Section 1: What the Meatsack Thinks He Wants
+
+## Project Mission
+DarkBox is a specialized academic research apparatus using the WicdPico I&C platform for controlled environment plant growth experiments. The system supports Sarah's research into acetate-based plant metabolism conducted in complete darkness (no photosynthesis).
+
+## Critical Requirements
+
+### Absolute Darkness Mandate
+- **Zero light emission**: No power LEDs, status indicators, or any light sources whatsoever
+- **Complete sealing**: Chamber must be 100% light-tight with baffled ventilation ducts
+- **Dark room operation**: Windowless room with light-lock entry system
+- **IR navigation**: 940nm camera required for researcher movement in dark environment
+- **Safety validation**: Multiple redundant light detection systems for verification
+
+### Research Context & Constraints
+- **Expensive reagents**: C13 tagged acetate costs require bulletproof system before use
+- **Academic timeline**: Must support HardwareX publication within 6 months
+- **Publication quality**: Data logging and system behavior must be peer-review defensible
+- **Reproducibility**: Open source design enabling other researchers to replicate
+- **Budget reality**: Academic-grade results with maker-level component costs
+
+## Development Phases
+
+### Phase 1: Petri Dish Validation System
+- **Scope**: Plants in agar petri dishes within 50cm cube dark chamber
+- **Platform**: Single WicdPico node sufficient
+- **Sensors**: CO2 (SCD41), temperature/humidity (SHT45), light presence (BH1750)
+- **Control**: Variable speed fan for air circulation
+- **Data**: SD card logging with RTC timestamps
+- **Interface**: Web-based VCP for monitoring/control
+- **Goal**: Prove concept and validate complete darkness capability
+
+### Phase 2: Hydroponic Integration
+- **Additional systems**: Solution reservoir, netcup lid, rockwool medium
+- **New actuators**: Air stone bubbler, solution pump, level sensor
+- **Automation**: Fresh solution pumping from external storage
+- **Complexity**: May require multiple WicdPico nodes or hub architecture
+- **Target**: Production system for actual C13 acetate experiments
+
+## Technical Architecture Decisions
+- **Base Platform**: WicdPico I&C system (Raspberry Pi Pico 2 W, CircuitPython)
+- **Dependency Management**: WicdPico as Git submodule (controlled updates)
+- **Development**: VSCode integration with automated deployment scripts
+- **Safety**: Multiple redundant monitoring systems, manual overrides
+- **Data**: Local SD logging + remote VCP access for experiment monitoring
+
+**Key Decision Filter**: Does this approach enable Sarah's research while maintaining absolute darkness and academic publication standards?
+
+---
+
+# Section 2: What We've Done So Far
+
+## Current System State (2025-08-29)
+- **Repository**: Initialized local git repo at `/home/joepardue/darkbox/`
+- **Structure**: Empty repository ready for development
+- **Dependencies**: WicdPico submodule to be added
+- **Documentation**: README.md and context file created
+- **Platform**: Based on proven WicdPico foundation from `/home/joepardue/wicdpico/`
+
+## WicdPico Platform Status (Dependency)
+- **Foundation**: Mature, tested CircuitPython I&C framework
+- **Modules Available**: SHT45, SCD41, BH1750, LED control, RTC, SD card, battery monitor
+- **Web Interface**: Proven VCP system with modular dashboard
+- **Hardware**: I2C sensor support, Pico 2 W platform validated
+- **Development**: VSCode workflow established with deployment scripts
+
+## Repository Architecture Designed
+```
+darkbox/
+├── wicdpico/                    # Git submodule (to be added)
+├── darkbox_modules/             # DarkBox-specific modules (to be developed)
+├── phase1/                      # Phase 1 configuration (to be created)
+├── phase2/                      # Phase 2 configuration (future)
+├── lib/                         # Symlinks to WicdPico modules (to be created)
+├── docs/                        # Research documentation (future)
+├── scripts/                     # Development tools (to be created)
+├── README.md                    # ✅ Complete
+└── claude_context.txt           # ✅ Complete
+```
+
+## Development Workflow Planned
+- **VSCode Integration**: Adapt existing WicdPico deployment scripts
+- **Code Templates**: `phase1/code_phase1.py` → `code.py` deployment pattern
+- **Dependency Sync**: Automated copying of required WicdPico modules to CIRCUITPY
+- **Version Control**: Lock WicdPico submodule to stable commits for research reliability
+
+---
+
+# Section 3: Methods That Have Improved Meatsack/AI Collaboration
+
+## Critical Lessons Learned from WicdPico Project
+
+### AI Collaboration Pitfalls Identified
+- **People-Pleasing Bias**: AI tendency to support human preferences rather than challenge with reality-based constraints
+- **Architecture Paralysis**: Complex architectural discussions can lead to circular decision-making
+- **False Authority**: AI presents web search summaries as definitive guidance without real-world validation
+- **Scope Creep**: Tendency to over-engineer solutions instead of focusing on specific requirements
+
+### Successful Collaboration Patterns
+- **Research-First Decisions**: Use actual project examples (ESPHome/Home Assistant) rather than theoretical "best practices"
+- **Constraint-Driven Design**: Define specific requirements before exploring solutions
+- **Proven over Perfect**: Working simple solutions beat elegant complex ones that fail
+- **Focus Discipline**: Single-purpose applications (DarkBox) rather than premature generalization
+- **Separate Concerns**: Repository separation for different problem domains
+
+### Process Improvements for DarkBox
+- **Phase-Based Development**: Phase 1 validation before Phase 2 complexity
+- **Safety-First Approach**: Multiple validation systems before expensive experiments  
+- **Academic Timeline Awareness**: Publication deadlines drive architecture decisions
+- **Dependency Control**: Submodule approach prevents unexpected WicdPico changes from breaking experiments
+
+## Decision Framework for DarkBox
+**Key Decision Filter**: Does this approach enable Sarah's research while maintaining absolute darkness, academic publication standards, and budget constraints?
+
+**Safety Override**: Any decision that compromises absolute darkness is automatically rejected, regardless of other benefits.
+
+---
+
+# Section 4: Prompts to Modify AI Behavior
+
+## Reality-Checking Commands for DarkBox Development
+- "Show me 3 GitHub repos doing similar research apparatus projects" (specific examples vs. generic advice)
+- "What would actually break the darkness requirement if we chose approach X?" (safety analysis)
+- "How do academic researchers actually structure hardware projects for publication?" (real-world practices)
+- "The WicdPico platform already works - what specific DarkBox requirements does it not handle?"
+
+## Bias-Countering Instructions
+- "I need you to actively push back against feature creep and unnecessary complexity"
+- "Challenge me when I'm adding features that don't directly serve the research goals"
+- "Remind me that absolute darkness is a non-negotiable safety requirement"
+- "Tell me when I'm asking questions that require domain knowledge about plant biology research"
+
+## Meta-Instructions for DarkBox Development
+- "Distinguish between what sounds good for general IoT vs. what works for academic research apparatus"
+- "When I ask for 'best practices,' remind me to define research-specific constraints first"
+- "Academic reproducibility is more important than technical elegance"
+- "Phase 1 must be proven before any Phase 2 development begins"
+
+## Development Instructions for DarkBox
+- Before writing any new code, examine the existing WicdPico codebase to understand patterns and conventions
+- Never create placeholder or mock code - only implement real, functional features for research use
+- All DarkBox-specific modules must maintain absolute darkness - no LEDs, no light-emitting components
+- If creating non-functional interim steps would help, explicitly ask permission and explain research impact
+- Always consider: "Would this approach work in a completely dark room with expensive reagents?"
+
+## Progress Tracking Instructions for DarkBox
+- Use TodoWrite tool for complex multi-step development tasks
+- Update context document bottom with new learnings as research progresses  
+- All commits must be safe for academic research - no experimental features in main branch
+- Document all safety validations and darkness testing procedures
+
+## Research-Specific Guidelines
+- **Safety First**: Any doubt about darkness integrity stops development until resolved
+- **Academic Standards**: All instrumentation must be publication-quality and reproducible
+- **Cost Consciousness**: Solutions must be affordable for resource-constrained researchers
+- **Timeline Awareness**: HardwareX publication deadline drives development priorities
+
+---
+
+# Progress Log
+
+## Session 2025-08-29: DarkBox Project Initialization
+
+### Repository Creation
+- **Local Setup**: Initialized git repository at `/home/joepardue/darkbox/`
+- **Documentation**: Created comprehensive README.md with project scope, phases, and safety requirements
+- **Context**: Established claude_context.txt with DarkBox-specific guidelines and constraints
+- **Architecture**: Planned Git submodule approach for WicdPico dependency management
+
+### Key Decisions Made
+- **Separate Repository**: DarkBox as standalone project using WicdPico via submodule
+- **Phase-Based Development**: Phase 1 (petri dishes) validation before Phase 2 (hydroponics)
+- **Safety Priority**: Absolute darkness requirement overrides all other considerations
+- **Academic Focus**: Publication timeline and reproducibility drive technical decisions
+
+### Technical Architecture Confirmed
+- **Dependency Management**: Git submodule approach based on CircuitPython Bundle patterns
+- **Development Workflow**: Adapt existing WicdPico VSCode scripts for DarkBox deployment
+- **Platform**: Single WicdPico node for Phase 1, potential hub for Phase 2
+- **Safety Systems**: Multiple redundant darkness monitoring and validation
+
+### Next Steps Planned
+- Add WicdPico as Git submodule to DarkBox repository
+- Create GitHub repository in saladmachine account
+- Develop Phase 1 darkbox_modules for complete darkness operation
+- Create VSCode deployment scripts adapted for DarkBox workflow
+
+*Session demonstrates successful application of research-focused development approach with safety-first priorities.*

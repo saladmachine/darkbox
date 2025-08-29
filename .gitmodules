@@ -1,0 +1,3 @@
+[submodule "wicdpico"]
+	path = wicdpico
+	url = https://github.com/saladmachine/wicdpico.git
